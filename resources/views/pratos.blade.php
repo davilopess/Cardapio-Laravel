@@ -2,11 +2,7 @@
 
 @section('conteudo')
 
-@if(empty($pratos))
-    <div class="alert alert-danger">
-        Você não tem nenhum produto cadastrado.
-    </div>
-@else
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <div class="container-topo">
         <!-- <h1>Listagem de produtos</h1> -->
@@ -38,7 +34,7 @@
         @endforeach
     </table>
     
-@endif
+
 
 <style>
     .container-add{
