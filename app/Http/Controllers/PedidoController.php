@@ -14,7 +14,7 @@ class PedidoController extends Controller
     }
 
     public function relatorio(){
-        $pedidos = Pedido::all();
+        $pedidos = DB::select('select * from pedidos where status_pedido = false');
     
         return \PDF::loadView('relatorio', compact('pedidos'))
                     // Se quiser que fique no formato a4 retrato: ->setPaper('a4', 'landscape')

@@ -4,7 +4,7 @@
     <table class="table table-striped table-hover">
     <tr>
             <th>Nome</th>
-            <th>Local/th>
+            <th>Local</th>
             <th>Prato</th>
             <th>Acompanhamento</th>
             <th>Pagamento</th>

@@ -10,8 +10,11 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <div class="container-topo">
         <!-- <h1>Listagem de produtos</h1> -->
-    </div>
+        <a class="btn btn-success" href="{{action('PedidoController@relatorio')}}">
+                            Baixar Lista de Pedidos<span class="material-icons" style="color:white;">download</span>
+        </a>
 
+    </div>
     <table class="table table-striped table-hover">
         <tr>
             <th>Nome</th>
@@ -30,11 +33,11 @@
             <td>{{$p->pagamento_pedido}}</td>
             <td>{{$p->data_pedido}}</td>
 
-            <!-- <td>
+            <td>
                 <a href="">
                     <span class="material-icons">edit</span>
                 </a>
-            </td> -->
+            </td>
             <td>
                 <a href="">
                     <span class="material-icons">delete</span>
@@ -53,6 +56,22 @@
         align-items: center;
 
     }
+    
+    .container-topo{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 3px;
+    }
+    .container-topo a{
+        display:flex;
+        align-items: center;
+        font-family: Raleway;
+        font-weight: bold;
+        text-decoration:none;
+        color: white;
+    }
+
 </style>
 
 @stop
