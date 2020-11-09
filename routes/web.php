@@ -12,4 +12,6 @@
 */
 
 Route::get('/pratos', 'PratoController@index');
+Route::get('/pratos2', 'PratoController@index2');
 Route::get('/acompanhamentos', 'AcompanhamentoController@index');
+Route::post('/acompanhamentos', 'AcompanhamentoController@create');

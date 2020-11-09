@@ -7,10 +7,19 @@
         Você não tem nenhum produto cadastrado.
     </div>
 @else
+    
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <div class="container-topo">
         <!-- <h1>Listagem de produtos</h1> -->
     </div>
+    
+        <form class="container-add" action="{{action('AcompanhamentoController@create')}} " method="post">
+            <input type="hidden"
+                name="_token" value="{{{ csrf_token() }}}" />
+            <input name="name" type="text" class="form-control" placeholder="Adicione um acompanhamento">
+            <button type="submit" class="btn btn-lg btn-primary"><i class=material-icons>add</i></button>
+        </form>
+    
     <table class="table table-striped table-hover">
         @foreach ($acompanhamentos as $a)
         <tr  class="">
@@ -32,5 +41,13 @@
     </table>
     
 @endif
+
+<style>
+    .container-add{
+        display: flex;
+        align-items: center;
+
+    }
+</style>
 
 @stop

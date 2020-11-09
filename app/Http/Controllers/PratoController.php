@@ -13,4 +13,9 @@ class PratoController extends Controller
         $pratos = DB::select('select * from pratos where type = 1');
         return view('pratos', ['pratos' => $pratos]);
     }
+
+    public function index2(){
+        $pratos_saudaveis = DB::select('select * from pratos where type = 2');
+        return view('pratos-saudaveis', ['pratos' => $pratos_saudaveis]);
+    }
 }
