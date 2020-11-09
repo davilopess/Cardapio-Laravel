@@ -9,7 +9,7 @@ class AcompanhamentoController extends Controller
 {
     
     public function index(){
-        $acompanhamentos = Acompanhamento::all();
+        $acompanhamentos = Acompanhamento::orderBy('name')->get();
         return view('acompanhamentos', ['acompanhamentos' => $acompanhamentos]);
     }
 
