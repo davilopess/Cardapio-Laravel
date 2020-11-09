@@ -24,7 +24,7 @@
                     <li><a href="/acompanhamentos">
                         Acompanhamentos
                     </a></li>
-                    <li><a href="">
+                    <li><a href="/pedidos">
                         Pedidos
                     </a></li>
                     <li><a href="/logout">

@@ -23,3 +23,6 @@ Route::get('/pratos2/delete/{id}', 'PratoController@destroy2');     //Deletar Pr
 Route::get('/acompanhamentos', 'AcompanhamentoController@index');
 Route::post('/acompanhamentos/novo', 'AcompanhamentoController@create');
 Route::get('/acompanhamentos/delete/{id}', 'AcompanhamentoController@destroy');     //Deletar Acompanhamento
+
+Route::get('/pedidos', 'PedidoController@index');
+Route::get('/pedidos/relatorio', 'PedidoController@relatorio');
