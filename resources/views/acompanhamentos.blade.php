@@ -25,13 +25,13 @@
         <tr  class="">
             <td>{{$a->name}}</td>
 
-            <td>
+            <!-- <td>
                 <a href="">
                     <span class="material-icons">edit</span>
                 </a>
-            </td>
+            </td> -->
             <td>
-                <a href="">
+                <a href="{{action('AcompanhamentoController@destroy', $a->id)}}">
                     <span class="material-icons">delete</span>
                 </a>
             </td>

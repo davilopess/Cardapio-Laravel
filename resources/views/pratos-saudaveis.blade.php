@@ -23,13 +23,13 @@
         <tr  class="">
             <td>{{$p->name}}</td>
 
-            <td>
+            <!-- <td>
                 <a href="">
                     <span class="material-icons">edit</span>
                 </a>
-            </td>
+            </td> -->
             <td>
-                <a href="">
+                <a href="{{action('PratoController@destroy2', $p->id)}}">
                     <span class="material-icons">delete</span>
                 </a>
             </td>

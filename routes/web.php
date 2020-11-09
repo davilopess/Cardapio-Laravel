@@ -13,9 +13,13 @@
 
 Route::get('/pratos', 'PratoController@index');
 Route::post('/pratos/novo', 'PratoController@create');
-Route::post('/pratos/novo2', 'PratoController@create2');
+Route::get('/pratos/delete/{id}', 'PratoController@destroy');     //Deletar Prato normal
+
 
 Route::get('/pratos2', 'PratoController@index2');
+Route::post('/pratos2/novo2', 'PratoController@create2');
+Route::get('/pratos2/delete/{id}', 'PratoController@destroy2');     //Deletar Prato saudavel
 
 Route::get('/acompanhamentos', 'AcompanhamentoController@index');
 Route::post('/acompanhamentos/novo', 'AcompanhamentoController@create');
+Route::get('/acompanhamentos/delete/{id}', 'AcompanhamentoController@destroy');     //Deletar Acompanhamento

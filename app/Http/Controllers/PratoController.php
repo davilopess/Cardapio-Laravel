@@ -31,4 +31,20 @@ class PratoController extends Controller
             ->action('PratoController@index2');
             
     }
+
+    public function destroy($id){
+        $prato = Prato::find($id);
+        $prato->delete();
+
+        return redirect()
+            ->action('PratoController@index');
+    }
+
+    public function destroy2($id){
+        $prato = Prato::find($id);
+        $prato->delete();
+
+        return redirect()
+            ->action('PratoController@index2');
+    }
 }

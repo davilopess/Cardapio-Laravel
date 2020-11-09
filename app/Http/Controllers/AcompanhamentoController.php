@@ -19,4 +19,12 @@ class AcompanhamentoController extends Controller
             ->action('AcompanhamentoController@index');
             
     }
+
+    public function destroy($id){
+        $acompanhamento = Acompanhamento::find($id);
+        $acompanhamento->delete();
+
+        return redirect()
+            ->action('AcompanhamentoController@index');
+    }
 }
