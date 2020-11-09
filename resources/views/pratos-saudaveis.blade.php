@@ -11,10 +11,13 @@
     <div class="container-topo">
         <!-- <h1>Listagem de produtos</h1> -->
     </div>
-    <div class="container-add">
-        <input type="text" class="form-control" placeholder="Adicione um prato">
+    <form class="container-add" action="{{action('PratoController@create2')}} " method="post">
+        <input type="hidden"
+            name="_token" value="{{{ csrf_token() }}}" />
+        <input name="type" type="hidden" value="2">
+        <input name="name" type="text" class="form-control" placeholder="Adicione um prato">
         <button type="submit" class="btn btn-lg btn-primary"><i class=material-icons>add</i></button>
-    </div>
+    </form>
     <table class="table table-striped table-hover">
         @foreach ($pratos as $p)
         <tr  class="">
