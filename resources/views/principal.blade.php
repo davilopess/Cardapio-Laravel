@@ -15,22 +15,22 @@
                     </a>
                     </div>
                     <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/pratos">
+                    <li><a href="{{action('PratoController@index')}}">
                         Pratos
                     </a></li>
-                    <li><a href="pratos2">
+                    <li><a href="{{action('PratoController@index2')}}">
                         Pratos Saudaveis
                     </a></li>
-                    <li><a href="/acompanhamentos">
+                    <li><a href="{{action('AcompanhamentoController@index')}}">
                         Acompanhamentos
                     </a></li>
-                    <li><a href="/pedidos">
+                    <li><a href="{{action('PedidoController@index')}}">
                         Pedidos
                     </a></li>
-                    <li><a href="/pedidos/mensal">
+                    <li><a href="{{action('PedidoController@mensalidade')}}">
                         Mensalidade
                     </a></li>
-                    <li><a href="/logout">
+                    <li><a href="./logout">
                         Sair
                     </a></li>
                     </ul>
