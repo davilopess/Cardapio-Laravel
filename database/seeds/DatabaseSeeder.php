@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(PedidoTableSeeder::class);
         $this->call(PratoTableSeeder::class);
+        $this->call(AcompanhamentoTableSeeder::class);
     }
 }
 

@@ -31,5 +31,12 @@ class PratoTableSeeder extends Seeder
         DB::insert('insert into pratos (name,type)
             values (?,?)',
             array('Panqueca', 1));
+
+        DB::insert('insert into pratos (name,type)
+            values (?,?)',
+            array('Frango Grelhado (Arroz integral, feijão, legumes a vapor, alface, chips e torta vegetariana)', 2));
+        DB::insert('insert into pratos (name,type)
+            values (?,?)',
+            array('Salada La predileta a moda tropical com frango trinchado e granola', 2));
     }
 }
