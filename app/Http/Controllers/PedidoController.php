@@ -40,4 +40,16 @@ class PedidoController extends Controller
         
         return view('mensal');
     }
+
+    public function show(){
+        $nome = Request::input('nome');
+        $mes = Request::input('mes');
+
+        $pedidos = DB::select('SELECT * FROM pedidos WHERE nome_pedido = ? AND MONTH(data_pedido)= ?', [$nome, $mes]);
+        
+
+        return view('mensal', ['pedidos' => $pedidos]);
+  
+
+    }
 }

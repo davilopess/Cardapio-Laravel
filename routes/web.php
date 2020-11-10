@@ -28,3 +28,4 @@ Route::get('/pedidos', 'PedidoController@index');
 Route::get('/pedidos/relatorio', 'PedidoController@relatorio');
 Route::post('/pedidos/relatorio2', 'PedidoController@relatorioMensal');
 Route::get('/pedidos/mensal', 'PedidoController@mensalidade');
+Route::post('/pedidos/mensal/pesquisa', 'PedidoController@show');
