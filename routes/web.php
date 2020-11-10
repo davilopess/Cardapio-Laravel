@@ -26,5 +26,5 @@ Route::get('/acompanhamentos/delete/{id}', 'AcompanhamentoController@destroy'); 
 
 Route::get('/pedidos', 'PedidoController@index');
 Route::get('/pedidos/relatorio', 'PedidoController@relatorio');
-Route::get('/pedidos/relatorio2', 'PedidoController@relatorioMensal');
+Route::post('/pedidos/relatorio2', 'PedidoController@relatorioMensal');
 Route::get('/pedidos/mensal', 'PedidoController@mensalidade');
