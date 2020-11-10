@@ -27,6 +27,9 @@
                     <li><a href="/pedidos">
                         Pedidos
                     </a></li>
+                    <li><a href="/pedidos/mensal">
+                        Mensalidade
+                    </a></li>
                     <li><a href="/logout">
                         Sair
                     </a></li>

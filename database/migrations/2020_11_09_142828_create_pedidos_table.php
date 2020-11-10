@@ -21,7 +21,7 @@ class CreatePedidosTable extends Migration
             $table->string('acompanhamento_pedido');
             $table->string('pagamento_pedido');
             $table->boolean('status_pedido');
-            $table->dateTime('data_pedido');
+            $table->date('data_pedido');
             $table->timestamps();
         });
     }
