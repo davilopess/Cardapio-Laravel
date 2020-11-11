@@ -25,7 +25,7 @@ Route::post('/acompanhamentos/novo', 'AcompanhamentoController@create');
 Route::get('/acompanhamentos/delete/{id}', 'AcompanhamentoController@destroy');     //Deletar Acompanhamento
 
 Route::get('/pedidos', 'PedidoController@index');
-Route::get('/pedidos/relatorio', 'PedidoController@relatorio');
+Route::get('/pedidos/relatorio/{data}', 'PedidoController@relatorio');
 Route::post('/pedidos/relatorio2', 'PedidoController@relatorioMensal');
 Route::get('/pedidos/mensal', 'PedidoController@mensalidade');
 Route::post('/pedidos/mensal/pesquisa', 'PedidoController@show');

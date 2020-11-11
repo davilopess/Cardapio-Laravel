@@ -2,18 +2,18 @@
 
 @section('conteudo')
 
-@if(empty($pedidos))
-    <div class="alert alert-danger">
-        Você não tem nenhum produto cadastrado.
-    </div>
-@else
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <div class="container-topo">
-        <!-- <h1>Listagem de produtos</h1> -->
-        <a class="btn btn-success" href="{{action('PedidoController@relatorio')}}">
-                            Baixar Lista de Pedidos<span class="material-icons" style="color:white;">download</span>
+        <form action="{{action('PedidoController@index')}}" method="get">
+            <input name="data" class="form-control" type="text"
+                 style="margin-bottom: -6px; width: 95px;" value="{{$dataRequest}}">
+            
+            <button hidden type="submit"></button>
+        </form>
+        <a class="btn btn-success" href="{{action('PedidoController@relatorio', $dataRequest)}}">
+                                Baixar Lista de Pedidos<span class="material-icons" style="color:white;">download</span>
         </a>
-
     </div>
     <table class="table table-striped table-hover">
         <tr>
@@ -32,7 +32,8 @@
             <td>{{$p->acompanhamento_pedido}}</td>
             <td>{{$p->pagamento_pedido}}</td>
             <td>{{$p->data_pedido}}</td>
-            <td>{{$p->id_pedido}}</td>
+            
+            
 
             <td>
                 <a href="">
@@ -48,8 +49,11 @@
 
         @endforeach
     </table>
-    
-@endif
+    @if(empty($pedidos))
+    <div class="alert alert-danger">
+        Sem pedidos cadastrados.
+    </div>
+    @endif
 
 <style>
     .container-add{
@@ -61,7 +65,7 @@
     .container-topo{
         display: flex;
         align-items: center;
-        justify-content: flex-end;
+        justify-content: space-between;
         padding: 3px;
     }
     .container-topo a{

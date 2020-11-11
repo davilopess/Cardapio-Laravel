@@ -2,7 +2,7 @@
 
 namespace cardapio\Http\Controllers;
 
-
+use Carbon\Carbon;
 use Request;
 use cardapio\Models\Pedido;
 use Illuminate\Support\Facades\DB;
@@ -10,12 +10,15 @@ use Illuminate\Support\Facades\DB;
 class PedidoController extends Controller
 {
     public function index(){
-        $pedidos = DB::select('select * from pedidos where status_pedido = false');
-        return view('pedidos', ['pedidos' => $pedidos]);
+        $data = Pedido::dateAddHours();
+        $dataRequest = Request::input('data', $data);
+        $pedidos = DB::select('select * from pedidos where data_pedido = ?', [$dataRequest]);
+        
+        return view('pedidos', ['pedidos' => $pedidos, 'dataRequest' => $dataRequest]);
     }
 
-    public function relatorio(){
-        $pedidos = DB::select('select * from pedidos where status_pedido = false');
+    public function relatorio($data){
+        $pedidos = DB::select('select * from pedidos where data_pedido = ?', [$data]);
     
         return \PDF::loadView('relatorio', compact('pedidos'))
                     // Se quiser que fique no formato a4 retrato: ->setPaper('a4', 'landscape')
