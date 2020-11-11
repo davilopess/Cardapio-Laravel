@@ -11,6 +11,7 @@ class PedidoController extends Controller
 {
     public function index(){
         $data = Pedido::dateAddHours();
+
         $dataRequest = Request::input('data', $data);
         $pedidos = DB::select('select * from pedidos where data_pedido = ?', [$dataRequest]);
         
@@ -66,5 +67,6 @@ class PedidoController extends Controller
 
         return redirect()
             ->action('PedidoController@index');
+            
     }
 }
