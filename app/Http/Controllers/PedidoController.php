@@ -25,9 +25,13 @@ class PedidoController extends Controller
 
     public function relatorioMensal(){
         $mes = Request::input('mes', 11);
-        $pedidos = DB::select("SELECT nome_pedido ,
-        COUNT(*) AS 'numero_pedido',local_pedido , pagamento_pedido 
-        FROM pedidos WHERE MONTH(data_pedido) =  ? GROUP BY nome_pedido", [$mes]);
+        $pedidos = DB::select("
+            SELECT nome_pedido ,
+            COUNT(*) AS 'numero_pedido',local_pedido , pagamento_pedido, COUNT(*)*12.00 AS 'total_pedido'
+            FROM pedidos 
+            WHERE MONTH(data_pedido) =  ? 
+            GROUP BY nome_pedido 
+            ORDER BY nome_pedido", [$mes]);
        
         
         return \PDF::loadView('relatorioMensal', compact('pedidos'))
@@ -49,7 +53,15 @@ class PedidoController extends Controller
         
 
         return view('mensal', ['pedidos' => $pedidos]);
-  
 
+    }
+
+    public function destroy($id){
+        
+        $pedido = Pedido::remove($id);
+        
+
+        return redirect()
+            ->action('PedidoController@index');
     }
 }

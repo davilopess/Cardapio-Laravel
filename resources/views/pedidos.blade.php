@@ -32,6 +32,7 @@
             <td>{{$p->acompanhamento_pedido}}</td>
             <td>{{$p->pagamento_pedido}}</td>
             <td>{{$p->data_pedido}}</td>
+            <td>{{$p->id_pedido}}</td>
 
             <td>
                 <a href="">
@@ -39,7 +40,7 @@
                 </a>
             </td>
             <td>
-                <a href="">
+                <a href="{{action('PedidoController@destroy', $p->id_pedido)}}">
                     <span class="material-icons">delete</span>
                 </a>
             </td>

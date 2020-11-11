@@ -5,6 +5,7 @@
           <th>Numero de Pedidos</th>
           <th>Local</th>
           <th>Pagamento</th>
+          <th>Total</th>
 
       </tr>
       @foreach ($pedidos as $p)
@@ -13,6 +14,7 @@
           <td>{{$p->numero_pedido}}</td>
           <td>{{$p->local_pedido}}</td>
           <td>{{$p->pagamento_pedido}}</td>
+          <td>R${{$p->total_pedido}}</td>
           <td>
       </tr>
       @endforeach
