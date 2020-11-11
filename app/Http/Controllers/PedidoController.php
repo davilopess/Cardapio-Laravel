@@ -28,7 +28,7 @@ class PedidoController extends Controller
         $pedidos = DB::select("SELECT nome_pedido ,
         COUNT(*) AS 'numero_pedido',local_pedido , pagamento_pedido 
         FROM pedidos WHERE MONTH(data_pedido) =  ? GROUP BY nome_pedido", [$mes]);
-        print_r($pedidos);
+       
         
         return \PDF::loadView('relatorioMensal', compact('pedidos'))
         // Se quiser que fique no formato a4 retrato: ->setPaper('a4', 'landscape')
