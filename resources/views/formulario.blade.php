@@ -6,33 +6,76 @@
     <title>Cardapio</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 </head>
 <body>
     <div class="container-pedido">
-        <h1>Solicitação de Almoço</h1>
-        <span>Pedido referente a data 12/11/2020</span>
+        <div class= "container-header">
+            <h1>Solicitação de Almoço</h1>
+            <span>Pedido referente a data 12/11/2020</span>
+        </div>
 
         <form action="">
             <section>
-                
-                <input name="local_pedido" type="checkbox">
+                <span>Empresa</span>
+                <div container-checkbox>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                        <label class="custom-control-label" for="customCheck1">Dimensão</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck2">
+                        <label class="custom-control-label" for="customCheck2">Diretoria</label>
+                    </div>
+                </div>
+
             </section>
             <section>
-                <input name="nome_pedido" type="text">
+                <span>Nome</span>
+                <input class="form-control w-75" name="nome_pedido" type="text">
             </section>
             <section>
-                <select name="prato_pedido" type="text">
+                <span>Prato Principal</span>
+                <input class="form-control w-75" name="prato_pedido" type="text">
+            </section>
+            <section>
+                <span>Prato Fitness</span>
+                <select class="form-control w-75" name="prato_pedido" type="text">
                     <option value="">Selecione um prato</option>
                 </select>
             </section>
             <section>
-                <input name="prato_pedido" type="text">
+                <span>Acompanhamentos</span>
+                
+                <div container-checkbox>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck3">
+                        <label class="custom-control-label" for="customCheck3">Arroz Branco</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck4">
+                        <label class="custom-control-label" for="customCheck4">Pure de batata</label>
+                    </div>
+                </div>
             </section>
             <section>
-                <input name="acompanhamento_pedido" type="checkbox">
+                <span>Observação</span>
+                <input class="form-control w-75" name="" type="text">
             </section>
             <section>
-                <input name="pagamento_pedido" type="text">
+                <span>Forma de Pagamento</span>
+                <div container-checkbox>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck5">
+                        <label class="custom-control-label" for="customCheck5">Dimensão</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck6">
+                        <label class="custom-control-label" for="customCheck6">Diretoria</label>
+                    </div>
+                </div>
+            </section>
         </form>
     </div>
 </body>
@@ -47,10 +90,32 @@
         flex-direction: column;
     }
     .container-pedido{
-        margin: 120px;
+        margin: 50px 120px;
         display: flex;
         
         flex-direction: column;
+    }
+    .container-header{
+        margin-bottom: 50px;
+        display: flex;
+        
+        flex-direction: column;
+        
+    }
+    .container-checkbox {
+        margin-right: 500px;
+        display: flex;
+        flex-direction: row;
+        
+    }
+
+    section{
+        width: 60%;
+        display: flex;
+        
+        justify-content: space-between;
+        
+        margin-bottom: 20px;
     }
 </style>
 </html>
