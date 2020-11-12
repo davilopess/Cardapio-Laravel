@@ -30,3 +30,7 @@ Route::post('/pedidos/relatorio2', 'PedidoController@relatorioMensal');
 Route::get('/pedidos/mensal', 'PedidoController@mensalidade');
 Route::post('/pedidos/mensal/pesquisa', 'PedidoController@show');
 Route::get('/pedidos/delete/{id_pedido}', 'PedidoController@destroy');            //Deletar Pedido
+
+Route::get('/', function () {
+    return view('formulario');
+});            
