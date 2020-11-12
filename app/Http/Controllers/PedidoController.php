@@ -64,9 +64,7 @@ class PedidoController extends Controller
         
         $pedido = Pedido::remove($id);
         
-
-        return redirect()
-            ->action('PedidoController@index');
+        return redirect()->back();
             
     }
 }
