@@ -15,18 +15,25 @@
         <div class= "container-header">
             <h1 style="font-family: 'Nunito', sans-serif;
                 ">Solicitação de Almoço</h1>
-            <span>Pedido referente a data 12/11/2020</span>
+            <span>Pedido referente a data {{$data}}</span>
         </div>
-        <form action="">
+        <form action="/create" method="post">
+            <input type="hidden"
+            name="_token" value="{{{ csrf_token() }}}" />
+            <input type="hidden" value="{{$data}}" name="data_pedido">
             <section>
                 <span>Empresa</span>
                 <div container-checkbox>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                        <input name="local_pedido" type="checkbox" value="Aço Maranhão" class="custom-control-input" id="customCheck">
+                        <label class="custom-control-label" for="customCheck">Aço Maranhão</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input  name="local_pedido" type="checkbox" value="Dimensão" class="custom-control-input" id="customCheck1">
                         <label class="custom-control-label" for="customCheck1">Dimensão</label>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="customCheck2">
+                        <input  name="local_pedido" type="checkbox" value="Diretoria" class="custom-control-input" id="customCheck2">
                         <label class="custom-control-label" for="customCheck2">Diretoria</label>
                     </div>
                 </div>
@@ -50,7 +57,7 @@
                 <div container-checkbox>
                     @foreach ($pratos2 as $p2)
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="{{$p2->name}}">
+                            <input type="checkbox"  value="{{$p2->name}}" name="prato_pedido" class="custom-control-input" id="{{$p2->name}}">
                             <label class="custom-control-label" for="{{$p2->name}}">{{$p2->name}}</label>
                         </div>
                     @endforeach
@@ -63,8 +70,8 @@
                 <div container-checkbox>
                     @foreach ($acompanhamentos as $a)
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="{{$a->name}}">
-                            <label class="custom-control-label" for="{{$a->name}}">{{$a->name}}</label>
+                            <input type="checkbox" value="{{$a->name}}" name="acompanhamento_pedido[]" class="custom-control-input" id="{{$a->name}}">
+                            <label class="custom-control-label"  for="{{$a->name}}">{{$a->name}}</label>
                         </div>
                     @endforeach
 
@@ -78,17 +85,17 @@
                 <span>Forma de Pagamento</span>
                 <div check container-checkbox>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="customCheck5">
-                        <label class="custom-control-label" for="customCheck5">Dimensão</label>
+                        <input name="pagamento_pedido" type="checkbox" value="Mensalista" class="custom-control-input" id="customCheck5">
+                        <label class="custom-control-label" for="customCheck5">Mensalista</label>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="customCheck6">
-                        <label class="custom-control-label" for="customCheck6">Diretoria</label>
+                        <input  name="pagamento_pedido" type="checkbox" value="Dinheiro" class="custom-control-input" id="customCheck6">
+                        <label class="custom-control-label" for="customCheck6">Dinheiro</label>
                     </div>
                 </div>
             </section>
             <hr style="border-top: 1px solid rgb(255 255 255 /510%);"/>
-            <button type="button" class="btn btn-outline-light w-25">Enviar</button>
+            <button type="submit" class="btn btn-outline-light w-25">Enviar</button>
         </form>
     </div>
     <img style="width: 500px; height: 500px; position: fixed; margin-top: 110px; right: 10px " src="/imagens/cozinha.png" alt="">
@@ -116,10 +123,12 @@
         /* align-items: center; */
     }
     .container-header{
+
         margin-bottom: 50px;
         display: flex;
         
         flex-direction: column;
+        align-items: center;
         
     }
     .check {

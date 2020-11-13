@@ -32,3 +32,4 @@ Route::post('/pedidos/mensal/pesquisa', 'PedidoController@show');
 Route::get('/pedidos/delete/{id_pedido}', 'PedidoController@destroy');            //Deletar Pedido
 
 Route::get('/', 'PedidoController@formulario');            
+Route::post('/create', 'PedidoController@create');            

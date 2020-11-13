@@ -74,10 +74,17 @@ class PedidoController extends Controller
         $pratos = DB::select('select * from pratos where type = 1');
         $pratos2 = DB::select('select * from pratos where type = 2');
         $acompanhamentos = Acompanhamento::orderBy('name')->get();
+        $data = Pedido::dateAddHours();
 
-        return view('formulario', ['pratos' => $pratos,
+        return view('formulario', ['pratos' => $pratos, 'data' => $data,
          'pratos2' => $pratos2, 'acompanhamentos' => $acompanhamentos]);
 
+
+    }
+
+    public function create(){
+        $acompanhamento = Request::only('acompanhamento_pedido');
+        $acompanhamentos = implode("/", array_values($acompanhamento)[0]);
 
     }
 }
