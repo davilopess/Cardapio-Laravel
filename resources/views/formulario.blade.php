@@ -78,16 +78,16 @@
             </section>
         </form>
     </div>
+        <!-- <img src="/imagens/background.png" alt=""> -->
 </body>
 <style>
     body {
         background-image: linear-gradient(to right, #20a5c7, #75c4bc);
+        
         font-family: 'Roboto', sans-serif;
         color: white;
-        display: flex;
         
-        justify-content: start;
-        flex-direction: column;
+        
     }
     .container-pedido{
         margin: 50px 120px;
