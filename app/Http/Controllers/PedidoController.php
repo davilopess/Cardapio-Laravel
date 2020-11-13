@@ -5,6 +5,8 @@ namespace cardapio\Http\Controllers;
 use Carbon\Carbon;
 use Request;
 use cardapio\Models\Pedido;
+use cardapio\Models\Prato;
+use cardapio\Models\Acompanhamento;
 use Illuminate\Support\Facades\DB;
 
 class PedidoController extends Controller
@@ -66,5 +68,16 @@ class PedidoController extends Controller
         
         return redirect()->back();
             
+    }
+
+    public function formulario (){
+        $pratos = DB::select('select * from pratos where type = 1');
+        $pratos2 = DB::select('select * from pratos where type = 2');
+        $acompanhamentos = Acompanhamento::orderBy('name')->get();
+
+        return view('formulario', ['pratos' => $pratos,
+         'pratos2' => $pratos2, 'acompanhamentos' => $acompanhamentos]);
+
+
     }
 }

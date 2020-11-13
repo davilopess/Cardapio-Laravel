@@ -38,26 +38,36 @@
             </section>
             <section>
                 <span>Prato Principal</span>
-                <input class="form-control w-75" name="prato_pedido" type="text">
+                <select class="form-control w-75" name="prato_pedido" type="text">
+                    <option value="">Selecione um prato</option>
+                    @foreach ($pratos as $p)
+                        <option value="{{$p->name}}">{{$p->name}}</option>
+                    @endforeach
+                </select>
             </section>
             <section>
                 <span>Prato Fitness</span>
-                <select class="form-control w-75" name="prato_pedido" type="text">
-                    <option value="">Selecione um prato</option>
-                </select>
+                <div container-checkbox>
+                    @foreach ($pratos2 as $p2)
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="{{$p2->name}}">
+                            <label class="custom-control-label" for="{{$p2->name}}">{{$p2->name}}</label>
+                        </div>
+                    @endforeach
+
+                </div>
             </section>
             <section>
                 <span>Acompanhamentos</span>
                 
                 <div container-checkbox>
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="customCheck3">
-                        <label class="custom-control-label" for="customCheck3">Arroz Branco</label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="customCheck4">
-                        <label class="custom-control-label" for="customCheck4">Pure de batata</label>
-                    </div>
+                    @foreach ($acompanhamentos as $a)
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="{{$a->name}}">
+                            <label class="custom-control-label" for="{{$a->name}}">{{$a->name}}</label>
+                        </div>
+                    @endforeach
+
                 </div>
             </section>
             <section>
@@ -95,7 +105,7 @@
         
     }
     .pedido{
-        margin: 30px 100px;
+        margin: 30px 50px;
         display: flex;
         padding: 20px;
     
