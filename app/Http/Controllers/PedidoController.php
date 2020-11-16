@@ -85,9 +85,10 @@ class PedidoController extends Controller
     public function create(){
         $acompanhamento = Request::only('acompanhamento_pedido');
         $acompanhamentos =['acompanhamento_pedido' => implode("/", array_values($acompanhamento)[0])];
-        $insert = array_merge(Request::except('acompanhamento_pedido'), $acompanhamentos);
+        $pedido = array_merge(Request::except('acompanhamento_pedido'), $acompanhamentos);
 
-        Pedido::create($insert);
+        Pedido::create($pedido);
         
+        return view('create', ['pedido' => $pedido]);
     }
 }
