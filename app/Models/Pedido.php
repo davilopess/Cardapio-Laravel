@@ -11,8 +11,8 @@ class Pedido extends Model
 {
     protected $table = 'pedidos';
     public $timestamps = false;
-    protected $fillable = array( 'data_pedido', 'local_pedido', 'nome_pedido', 'prato_pedido','pagamento_pedido','acompanhamento_pedido',
-    'status_pedido');
+    protected $fillable = array( 'nome_pedido', 'local_pedido', 'prato_pedido','acompanhamento_pedido', 'pagamento_pedido',
+    'status_pedido', 'data_pedido');
 
     public static function remove($id){
         return DB::select('delete from pedidos where id_pedido = ?', [$id]);
