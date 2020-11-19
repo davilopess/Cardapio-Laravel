@@ -11,8 +11,15 @@ class Pedido extends Model
 {
     protected $table = 'pedidos';
     public $timestamps = false;
-    protected $fillable = array( 'nome_pedido', 'local_pedido', 'prato_pedido','acompanhamento_pedido', 'pagamento_pedido',
-    'status_pedido', 'data_pedido');
+    protected $fillable = [
+        'nome_pedido', 
+        'local_pedido', 
+        'prato_pedido',
+        'acompanhamento_pedido',
+        'pagamento_pedido',
+        'status_pedido',
+        'data_pedido'
+    ];
 
     public static function remove($id){
         return DB::select('delete from pedidos where id_pedido = ?', [$id]);
@@ -22,5 +29,9 @@ class Pedido extends Model
         $carbon_date = Carbon::parse(Carbon::now()->timezone('America/Sao_Paulo'));
         $carbon_date->addHours($hours);
         return $carbon_date->toDateString();
+    }
+
+    public function setAcompanhamentoPedidoAttribute($value){
+        $this->attributes['acompanhamento_pedido'] = implode('/', $value);
     }
 }

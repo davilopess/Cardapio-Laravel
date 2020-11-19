@@ -10,7 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::middleware('auth')->group(function () {
+
+Route::middleware(['auth'])->group(function () {
 
     Route::get('/pratos', 'PratoController@index');
     Route::post('/pratos/novo', 'PratoController@create');
@@ -37,10 +38,14 @@ Route::get('/', 'PedidoController@formulario');
 Route::post('/create', 'PedidoController@create'); 
 
 Auth::routes();
-Route::get('/logout', function () {
-    Auth::logout();
-    return redirect()
-            ->action('PratoController@index');
-});
+
+// Route::get('logout', 'Auth\LoginController@logout', function () {
+//     return abort(404);
+// });
+// Route::get('/logout', function () {
+//     Auth::logout();
+//     return redirect()
+//             ->action('PratoController@index');
+// });
 
 // Route::get('/home', 'HomeController@index')->name('home');
